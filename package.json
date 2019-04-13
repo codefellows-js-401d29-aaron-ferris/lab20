@@ -1,0 +1,43 @@
+{
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": "Putting together simple-api and auth",
+  "main": "index.js",
+  "dependencies": {
+    "@nmq/q": "^1.0.2",
+    "bcrypt": "^3.0.2",
+    "cors": "^2.8.4",
+    "debug": "^4.1.0",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.16.0",
+    "express": "^4.16.3",
+    "jest": "^24.5.0",
+    "json-server": "^0.14.2",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb-memory-server": "^2.7.3",
+    "mongoose": "^5.3.13",
+    "mongoose-schema-jsonschema": "^1.1.15",
+    "morgan": "^1.9.0",
+    "rand-token": "^0.4.0",
+    "require-directory": "^2.1.1",
+    "supertest": "^3.3.0",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint \"**/*.js\"",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js401-ferris-trainor-apiserver/apiserver.git"
+  },
+  "author": "Erin Trainor & Aaron Ferris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/js401-ferris-trainor-apiserver/apiserver/issues"
+  },
+  "homepage": "https://github.com/js401-ferris-trainor-apiserver/apiserver#readme"
+}

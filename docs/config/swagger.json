@@ -1,0 +1,402 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Server API",
+    "description": "The worlds funnest little API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/players": {
+      "get": {
+        "description": "Get all players",
+        "responses": {
+          "200": {
+            "description": "Returned a list of players",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayersList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new player",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlayer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/players/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get One player",
+        "responses": {
+          "200": {
+            "description": "Returned one player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete One player",
+        "responses": {
+          "200": {
+            "description": "Deleted one player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Replace a player",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Player"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the updated player",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams": {
+      "get": {
+        "description": "Get all teams",
+        "responses": {
+          "200": {
+            "description": "Returned a list of teams",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamsList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new team",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTeam"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created team",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teams/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "get": {
+        "description": "Get One team",
+        "responses": {
+          "200": {
+            "description": "Returned one team",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete One team",
+        "responses": {
+          "200": {
+            "description": "Deleted one team",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Replace a team",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Team"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the updated team",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Team"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+
+      "post": {
+        "description": "Create a new team",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returned the created team",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TeamsList": {
+        "type": "array",
+        "example": [
+          {
+            "name": "TMNT",
+            "players ": [
+              {
+                "id": 1,
+                "name": "April ONeil",
+                "position": "SS",
+                "throws": "L",
+                "bats": "L",
+                "team": "TMNT"
+              },
+              {
+                "id": 2,
+                "name": "Casey Jones",
+                "position": "C",
+                "throws": "R",
+                "bats": "R",
+                "team": "TMNT"
+              }
+            ]
+          },
+          {
+            "Name": "Foot Clan",
+            "players":[
+              {
+                "id": 3,
+                "name": "Shredder",
+                "position": "SS",
+                "throws": "R",
+                "bats": "L",
+                "team": "Foot Clan"
+              }
+            ]
+          }
+        ]
+      },
+      "NewTeam": {
+        "type": "object",
+        "example": {
+          "name": "Purple Dragons"
+        }
+      },
+      "Team": {
+        "type": "object",
+        "example": {
+            "name": "TMNT",
+            "players ": [
+              {
+                "id": 1,
+                "name": "April ONeil",
+                "position": "SS",
+                "throws": "L",
+                "bats": "L",
+                "team": "TMNT"
+              },
+              {
+                "id": 2,
+                "name": "Casey Jones",
+                "position": "C",
+                "throws": "R",
+                "bats": "R",
+                "team": "TMNT"
+              }
+            ]
+          }
+      },
+        "PlayersList": {
+        "type": "array",
+        "example": [
+          {
+            "id": 1,
+            "name": "April ONeil",
+            "position": "SS",
+            "throws": "L",
+            "bats": "L",
+            "team": "TMNT"
+          },
+          {
+            "id": 2,
+            "name": "Casey Jones",
+            "position": "C",
+            "throws": "R",
+            "bats": "R",
+            "team": "TMNT"
+          },
+          {
+            "id": 3,
+            "name": "Shredder",
+            "position": "SS",
+            "throws": "R",
+            "bats": "L",
+            "team": "Foot Clan"
+          }
+        ]
+      },
+      "NewPlayer": {
+        "type": "object",
+        "example": {
+            "name": "Master Shredder",
+            "position": "P",
+            "throws": "L",
+            "bats": "R",
+            "team": "TMNT"
+          }
+      },
+      "Player": {
+        "type": "object",
+        "example": {
+          "id": 3,
+          "name": "Shredder",
+          "position": "SS",
+          "throws": "R",
+          "bats": "L",
+          "team": "Foot Clan"
+        }
+      },
+      "NewUser": {
+      "type": "object",
+        "example": {
+          "username": "Raphael",
+          "password": "TMNT",
+          "email": "raphael@tmnt.net",
+          "role": "editor"
+        }
+      },
+      "User": {
+        "type": "object",
+        "example": {
+          "id": 4,
+          "username": "Raphael",
+          "password": "TMNT",
+          "email": "raphael@tmnt.net",
+          "role": "editor"        
+        }
+      },
+      "Delete": {
+        "type": "object",
+        "example": {}
+      }
+    }
+  }
+}
